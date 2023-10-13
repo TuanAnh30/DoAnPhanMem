@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/Blankpage.cshtml";
+}
+
+<div class="wrapper">
+    <div class="auth-content">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="mb-4">
+                    <img class="brand" src="assets/img/bootstraper-logo.png" alt="bootstraper logo">
+                </div>
+                <h4 class="mb-4 text-muted">ĐĂNG KÝ</h4>
+                @using (Html.BeginForm("DangKy", "NguoiDung"))
+                {
+                    @Html.ValidationSummary(true)
+                    <div class="mb-3 text-start">
+                        <label for="name" class="form-label">Họ và Tên</label>
+                        @Html.TextBox("HoTenKH", null, new
+                        {
+                            @class = "form-control",
+                            @id =
+                       "name",
+                            required = "required"
+                        })
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label for="dangnhap" class="form-label">Tên đăng nhập</label>
+                        @Html.TextBox("TenDN", null, new
+                        {
+                            @class = "form-control",
+                            @id =
+                       "dangnhap",
+                            required = "required"
+                        })
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label for="matkhau" class="form-label">Mật khẩu</label>
+                        @Html.Password("Matkhau", null, new
+                        {
+                            @class = "form-control",
+                            @id =
+                       "matkhau",
+                            required = "required"
+                        })
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label for="email" class="form-label">Email</label>
+                        @Html.TextBox("Email", null, new
+                        {
+                            @class = "form-control",
+                            @id =
+                       "email",
+                            type = "email",
+                            required = "required"
+                        })
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label for="diachi" class="form-label">Địa chỉ</label>
+                        @Html.TextBox("DiachiKH", null, new
+                        {
+                            @class = "form-control",
+                            @id =
+                       "diachi"
+                        })
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label for="dienthoai" class="form-label">Điện thoại</label>
+                        @Html.TextBox("DienthoaiKH", null, new
+                        {
+                            @class = "form-control",
+                            @id =
+                       "dienthoai",
+                            required = "required"
+                        })
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label for="ngaysinh" class="form-label">Ngày sinh</label>
+                        @Html.TextBox("Ngaysinh", null, new
+                        {
+                            @class = "form-control",
+                            @id =
+                       "ngaysinh",
+                            type = "date",
+                            placeholder = "mm/dd/yyyy"
+                        })
+                    </div>
+                    <button type="submit" class="btn btn-primary shadow-2 mb-4">ĐĂNG KÝ</button>
+                }
+                    <div class="mb-3 text-start">
+                        <div class="form-check">
+                            <input class="form-check-input" name="confirm" type="checkbox" value="" id="check1">
+                            <label class="form-check-label" for="check1">
+                                Tôi đồng ý cung cấp thông tin.
+                            </label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+

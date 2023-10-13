@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/Blankpage.cshtml";
+}
+
+<div class="wrapper">
+    <div class="auth-content">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="mb-4">
+                    <img class="brand" src="assets/img/bootstraper-logo.png" alt="bootstraper logo">
+                </div>
+                <h4 class="mb-4 text-muted">ĐĂNG NHẬP</h4>
+                <div class="row">
+                    <div class="offset-md-1 col-md-10">
+                        @using (Html.BeginForm("DangNhap", "User"))
+                        {
+                            @Html.ValidationSummary(true)
+                            <div class="mb-3 text-start">
+                                <label for="dangnhap" class="form-label">Tên đăng nhập:</label>
+                                @Html.TextBox("TenDN", null, new
+                                {
+                                    @class = "form-control",
+                                    @id = "dangnhap",
+                                    @placeholder = "Nhập tên đăng nhập",
+                                    required = "required"
+                                })
+
+                            </div>
+                            <div class="mb-3 text-start">
+                                <label for="matkhau" class="form-label">Mật khẩu:</label>
+                                @Html.Password("Matkhau", null, new
+                                {
+                                    @class = "form-control",
+                                    @id = "matkhau",
+                                    @placeholder = "Nhập mật khẩu",
+                                    required = "required"
+                                })
+                            </div>
+                            <button type="submit" class="btn btn-primary shadow-2 mb-4">ĐĂNG NHẬP</button>
+                            <br>
+                            <h7 style="color: red;">@ViewBag.ThongBao</h7>
+                            <p class="mb-0 text-muted">Bạn chưa có tài khoản? <a href="@Url.Action("DangKy", "User")">ĐĂNG KÝ</a></p>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
