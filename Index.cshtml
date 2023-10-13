@@ -1,0 +1,242 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<script src="~/Content/assets/vendor/chartsjs/Chart.min.js"></script>
+<script src="~/Content/assets/vendor/chartsjs/chart.js"></script>
+<div class="row">
+    <div class="col-md-12 page-header">
+        <div class="page-pretitle"></div>
+        <h2 class="page-title">TRANG CHÍNH</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="icon-big text-center">
+                            <a href="@Url.Action("Index", "Home")" class="teal fas fa-shopping-cart"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="detail">
+                            <p class="detail-subtitle">Bán Hàng</p>
+                            <span class="number">Tổng đơn: 1</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <hr />
+                    <div class="stats">
+                        <i class="fas fa-calendar"></i> @DateTime.Now
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="icon-big text-center">
+                            <i class="olive fas fa-money-bill-alt"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="detail">
+                            <p class="detail-subtitle">Doanh Thu</p>
+
+                            <span class="number">$2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <hr />
+                    <div class="stats">
+                        <i class="fas fa-calendar"></i>  Tháng @DateTime.Now.Month Năm @DateTime.Now.Year
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="icon-big text-center">
+                            <i class="violet fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="detail">
+                            <p class="detail-subtitle">Lượt Khách </p>
+                            <span class="number">15</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <hr />
+                    <div class="stats">
+                        <i class="fas fa-stopwatch"></i> Hôm nay
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="icon-big text-center">
+                            <a href="@Url.Action("Index", "ThemSuaXoaTaiKhoanNhanVien")" class="orange fas fa-users"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="detail">
+                            <p href="@Url.Action("Index", "ThemSuaXoaTaiKhoanNhanVien")" class="detail-subtitle">Nhân viên</p>
+                            <span class="number">3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <hr />
+                    <div class="stats">
+                        <i class="fas fa-helicopter"></i> Tất cả
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="head">
+                            <h5 class="mb-0">THỐNG KÊ </h5>
+                            <p class="text-muted">Thông kê của cửa hàng trong tháng này</p>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="icon-big text-center">
+                                            <p class="teal fas fa-shopping-cart"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="detail">
+                                            <p class="detail-subtitle">Đơn Hàng Mới</p>
+                                            <span class="number">4</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="icon-big text-center">
+                                            <i class="olive fas fa-money-bill-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="detail">
+                                            <p class="detail-subtitle">Doanh Thu</p>
+                                            <span class="number">$4</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="fas fa-calendar"></i>  Tháng @DateTime.Now.Month Năm @DateTime.Now.Year
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="head">
+                            <h5 class="mb-0">Sales Overview</h5>
+                            <p class="text-muted">Current year sales data</p>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <canvas class="chart" id="sales"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="dfd text-center">
+                        <i class="blue large-icon mb-2 fas fa-thumbs-up"></i>
+                        <h4 class="mb-0">+500</h4>
+                        <p class="text-muted">LƯỢT LIKE FACEBOOK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="dfd text-center">
+                        <i class="orange large-icon mb-2 fas fa-reply-all"></i>
+                        <h4 class="mb-0">+1,000</h4>
+                        <p class="text-muted">LƯỢT ĐÁNH GIÁ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="dfd text-center">
+                        <i class="grey large-icon mb-2 fas fa-envelope"></i>
+                        <h4 class="mb-0">+65</h4>
+                        <p class="text-muted">MAIL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="dfd text-center">
+                        <i class="olive large-icon mb-2 fas fa-dollar-sign"></i>
+                        <h4 class="mb-0">$2</h4>
+                        <p class="text-muted">TỔNG DOANH THU</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
