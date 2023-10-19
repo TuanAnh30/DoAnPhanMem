@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Admin.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<div class="page-title">
+    <h3>
+        DANH SÁCH KHÁCH HÀNG
+    </h3>
+</div>
+<p class="btn btn-primary">
+    @Html.ActionLink("Thêm ", "Create")
+    <i class="fas fa-plus-circle"></i>
+</p>
+<div class="box box-primary">
+    <table width="100%" class="table table-hover" id="dataTables-example">
+        <tr>
+            <th>
+                Họ Tên
+            </th>
+            <th>
+                Điện thoại
+            </th>
+            <th>
+                Tên đăng nhập
+            </th>
+            <th>
+                Mật khẩu
+            </th>
+            <th>
+                Giới tính
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Tình trạng
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTenKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DienThoaiKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Matkhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gioitinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Daduyet)
+                </td>
+                <td>
+                    <p class="btn btn-outline-primary"> @Html.ActionLink("Sửa", "Edit", new { id = item.MaKH }) </p>
+                    <p class="btn btn-outline-info"> @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaKH }) </p>
+                    <p class="btn btn-outline-danger"> @Html.ActionLink("Xóa", "Delete", new { id = item.MaKH }) </p>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

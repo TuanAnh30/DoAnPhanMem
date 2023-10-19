@@ -1,0 +1,55 @@
+﻿@model Admin.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h2 class="page-title">XÓA</h2>
+
+<div class="card">
+    <div class="card-body">
+
+    </div>
+    <h4>KHACHHANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayFor(model => model.HoTenKH)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiKH)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.DienThoaiKH)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.TenDN)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Matkhau)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Ngaysinh)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Gioitinh)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Daduyet)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

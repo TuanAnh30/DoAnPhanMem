@@ -1,0 +1,45 @@
+﻿@model Admin.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h2 class="card-title">CHI TIẾT</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">KHÁCH HÀNG</h4>
+        <hr />
+        <div class="row">
+            <div class="col-xs-6 col-sm-2">
+                <div class="icon-big text-center">
+                    <i class="fa-2x fas fa-user"></i>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-5">
+                <h5>Thông Tin Cá Nhân</h5>
+                <div class="row">
+                    <div class="col-md-10"><b>Họ Tên: </b>@Html.DisplayFor(model => model.HoTenKH)</div>
+                    <div class="col-md-10"><b>Đại Chỉ:</b> @Html.DisplayFor(model => model.DiaChiKH)</div>
+                    <div class="col-md-10"><b>Ngày Sinh:</b> @Html.DisplayFor(model => model.Ngaysinh)</div>
+                    <div class="col-md-10"><b>Số Điện Thoại: </b>@Html.DisplayFor(model => model.DienThoaiKH)</div>
+                    <div class="col-md-10"><b>Giới Tính: </b>@Html.DisplayFor(model => model.Gioitinh)</div>
+                    <div class="col-md-10"><b>Email:</b>@Html.DisplayFor(model => model.Email)</div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-5">
+                <h5>Thông Tin Tài Khoản</h5>
+                <div class="row">
+                    <div class="col-md-10"><b>Tên Đăng Nhập:</b> @Html.DisplayFor(model => model.TenDN)</div>
+                    <div class="col-md-10"><b>Mật Khẩu: </b>@Html.DisplayFor(model => model.Matkhau)</div>
+                    <div class="col-md-10"><b>Tình Trạng: </b>@Html.DisplayFor(model => model.Daduyet)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-3 col-md-6">
+    <p class="btn btn-secondary">@Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaKH })</p>
+    <p class="btn btn-primary">@Html.ActionLink("Trở lại danh sách", "Index")</p>
+</div>
