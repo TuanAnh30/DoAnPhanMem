@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Admin.Models.DONDATHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<div class="page-title">
+    <h3>
+        DANH SÁCH ĐƠN ĐẶT HÀNG
+    </h3>
+</div>
+<p class="btn btn-primary">
+    @Html.ActionLink("Thêm ", "Create")
+    <i class="fas fa-plus-circle"></i>
+</p>
+<div class="card">
+    <div class="card-body">
+        <div class="box box-primary">
+            <table width="100%" class="table table-hover" id="dataTables-example">
+                <tr>
+                    <th>
+                        Ngày Đặt
+                    </th>
+                    <th>
+                        Giá
+                    </th>
+                    <th>
+                        Tình Trạng Giao
+                    </th>
+                    <th>
+                        Số Điện Thoại
+                    </th>
+                    <th>
+                        Tình Trạng Thanh Toán
+                    </th>
+                    <th>
+                        Tình Trạng Giao Hàng
+                    </th>
+                    <th>
+                        Mã Khách Hàng
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayDH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Trigia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dagiao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SDTnhan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HTThanhtoan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HTGiaohang)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.KHACHHANG.MaKH)
+                        </td>
+                        <td>
+                            <p class="btn btn-outline-primary"> @Html.ActionLink("Sửa", "Edit", new { id = item.SoDH }) </p>
+                            <p class="btn btn-outline-info"> @Html.ActionLink("Chi Tiết", "Details", new { id = item.SoDH }) </p>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.SoDH })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

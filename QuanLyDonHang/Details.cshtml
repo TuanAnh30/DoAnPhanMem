@@ -1,0 +1,91 @@
+﻿@model Admin.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h2 class="page-title">CHI TIẾT ĐƠN HÀNG</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">ĐƠN HÀNG SỐ @Html.DisplayFor(model => model.SoDH)</h4>
+        Ngày đặt: @Html.DisplayFor(model => model.NgayDH)
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <dl class="dl-horizontal">
+                    <dd>
+                        <b>Tình Trạng:</b> @Html.DisplayFor(model => model.Dagiao)
+                    </dd>
+                    <dd>
+                        <b>Thanh Toán: </b> @Html.DisplayFor(model => model.HTThanhtoan)
+                    </dd>
+                    <dd>
+                        <b>Nhận hàng: </b>@Html.DisplayFor(model => model.HTGiaohang)
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>CHI TIẾT ĐƠN HÀNG</b></h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <b>Khách Hàng: </b> @Html.DisplayFor(model => model.KHACHHANG.TenDN) <br />
+                                <b>Ngày Giao: </b>@Html.DisplayFor(model => model.Ngaygiaohang)
+                            </div>
+                            <div class="col-md-6">
+                                <b>Tên Người Nhận: </b>@Html.DisplayFor(model => model.Tennguoinhan) <br />
+                                <b>Số Điện Thoại Nhận: </b>@Html.DisplayFor(model => model.SDTnhan) <br />
+                                <b>Đại Chỉ Nhận Hàng: </b>@Html.DisplayFor(model => model.Diachinhan)
+                            </div>
+                        </div>
+                        <table width="100%" class="table table-hover" id="dataTables-example">
+                            <tr>
+                                <th>
+                                    Tên Sản Phẩm
+                                </th>
+                                <th>
+                                    Số Lượng
+                                </th>
+                                <th>
+                                    Đơn Giá
+                                </th>
+                                <th>
+                                    Thành Tiền
+                                </th>
+                            </tr>
+
+                            @foreach (var item in Model.CTDATHANG)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.SACH.Tensach
+                                    </td>
+                                    <td>
+                                        @item.SoLuong
+                                    </td>
+                                    <td>
+                                        @item.Dongia
+                                    </td>
+                                    <td>
+                                        @item.Thanhtien
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                        <h6>Mã giảm giá: @Html.DisplayFor(model => model.MaGiamGia)</h6>
+                        <h6>Tổng tiền: @Html.DisplayFor(model => model.Trigia)</h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-3 col-md-6">
+    <p class="btn btn-secondary">@Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.SoDH })</p>
+    <p class="btn btn-primary">@Html.ActionLink("Trở lại danh sách", "Index")</p>
+</div>

@@ -1,0 +1,161 @@
+﻿@model Admin.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h2 class="card-title">CHỈNH SỬA</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Đơn Hàng Số @Html.DisplayFor(model => model.SoDH)</h3>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.SoDH)
+
+            <div class="mb-3 col-md-6">
+                Mã Khách Hàng
+                <div class="col-md-10">
+                    @Html.DropDownList("MaKH", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Ngày Đặt
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NgayDH, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NgayDH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Tình Trạng Giao
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Dagiao)
+                        @Html.ValidationMessageFor(model => model.Dagiao, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Ngày Giao
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Ngaygiaohang, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ngaygiaohang, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Tên Người Nhận
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tennguoinhan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tennguoinhan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Địa Chỉ Nhận
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Diachinhan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Diachinhan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Số Điện Thoại Đặt Hàng
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SDTnhan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SDTnhan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Tình Trạng Thanh Toán
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.HTThanhtoan)
+                        @Html.ValidationMessageFor(model => model.HTThanhtoan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Tình Trạng Đơn Hàng
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.HTGiaohang)
+                        @Html.ValidationMessageFor(model => model.HTGiaohang, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Mã Giảm Giá
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MaGiamGia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaGiamGia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>CHI TIẾT ĐƠN HÀNG</b></h5>
+                        <table width="100%" class="table table-hover" id="dataTables-example">
+                            <tr>
+                                <th>
+                                    Tên Sản Phẩm
+                                </th>
+                                <th>
+                                    Số Lượng
+                                </th>
+                                <th>
+                                    Đơn Giá
+                                </th>
+                                <th>
+                                    Thành Tiền
+                                </th>
+                            </tr>
+
+                            @foreach (var item in Model.CTDATHANG)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.SACH.Tensach
+                                    </td>
+                                    <td>
+                                        @item.SoLuong
+                                    </td>
+                                    <td>
+                                        @item.Dongia
+                                    </td>
+                                    <td>
+                                        @item.Thanhtien
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                        <h6>Mã giảm giá: @Html.DisplayFor(model => model.MaGiamGia)</h6>
+                        <h6>Tổng tiền: @Html.DisplayFor(model => model.Trigia)</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 col-md-6">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Lưu </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="btn btn-primary">
+    @Html.ActionLink("Trở lại danh sách", "Index")
+</div>
