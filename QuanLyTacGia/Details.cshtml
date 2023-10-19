@@ -1,0 +1,32 @@
+﻿@model Admin.Models.TACGIA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h2 class="page-title">CHI TIẾT TÁC GIẢ</h2>
+
+<div class="card">
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="icon-big text-center">
+                    <i class="fa-2x fas fa-user"></i>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="detail">
+                    <h5 class="card-title">ID @Html.DisplayFor(model => model.MaTG)</h5>
+                    <p class="card-text">Họ Tên: @Html.DisplayFor(model => model.TenTG)</p>
+                    <p class="card-text">Địa Chỉ: @Html.DisplayFor(model => model.DiachiTG)</p>
+                    <p class="card-text">Số Điện thoại: @Html.DisplayFor(model => model.DienthoaiTG)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-3 col-md-6">
+    <p class="btn btn-secondary">@Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaTG })</p>
+    <p class="btn btn-primary">@Html.ActionLink("Trở lại danh sách", "Index")</p>
+</div>

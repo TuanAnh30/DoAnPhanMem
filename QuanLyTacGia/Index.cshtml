@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Admin.Models.TACGIA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<div class="page-title">
+    <h3>
+        DANH SÁCH TÁC GIẢ
+    </h3>
+</div>
+<p class="btn btn-primary">
+    @Html.ActionLink("Thêm ", "Create")
+    <i class="fas fa-plus-circle"></i>
+</p>
+<div class="card">
+    <div class="card-body">
+        <div class="box box-primary">
+            <table width="100%" class="table table-hover" id="dataTables-example">
+                <tr>
+                    <th>
+                        Tên Tác Giả
+                    </th>
+                    <th>
+                        Địa Chỉ
+                    </th>
+                    <th>
+                        Số Điện Thoại
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenTG)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiachiTG)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DienthoaiTG)
+                        </td>
+                        <td>
+                            <p class="btn btn-outline-primary"> @Html.ActionLink("Sửa", "Edit", new { id = item.MaTG }) </p>
+                            <p class="btn btn-outline-info"> @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaTG }) </p>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MaTG })
+                        </td>
+                        
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
