@@ -1,0 +1,22 @@
+﻿@model Admin.Models.NHAXUATBAN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h2 class="page-title">CHI TIẾT</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Nhà Xuất Bản @Html.DisplayFor(model => model.MaNXB)</h4>
+        <hr />
+        <p class="card-text">Nhà Xuất Bản: @Html.DisplayFor(model => model.TenNXB)</p>
+        <p class="card-text">Địa Chỉ: @Html.DisplayFor(model => model.Diachi)</p>
+        <p class="card-text">Số Điện Thoại: @Html.DisplayFor(model => model.DienThoai)</p>
+    </div>
+</div>
+<div class="mb-3 col-md-6">
+    <p class="btn btn-secondary">@Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaNXB })</p>
+    <p class="btn btn-primary">@Html.ActionLink("Trở lại danh sách", "Index")</p>
+</div>
