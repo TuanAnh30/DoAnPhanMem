@@ -1,0 +1,35 @@
+﻿@model Admin.Models.SACH
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h2 class="page-title">XÓA</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><b>@Html.DisplayFor(model => model.Tensach)</b></h5>
+                <p class="card-text">Mô tả: @Html.DisplayFor(model => model.Mota)</p>
+                <p class="card-text">Đơn vị tính: @Html.DisplayFor(model => model.Donvitinh)</p>
+                <p class="card-text">Giá:  @Html.DisplayFor(model => model.Dongia)</p>
+                <p class="card-text">Hình: @Html.DisplayFor(model => model.Hinhanh)</p>
+                <p class="card-text">Chủ đề: @Html.DisplayFor(model => model.CHUDE.TenCD)</p>
+                <p class="card-text">Nhà xuất bản: @Html.DisplayFor(model => model.NHAXUATBAN.TenNXB)</p>
+                <p class="card-text">Số lượng bán: @Html.DisplayFor(model => model.Soluongban)</p>
+                <p class="card-text">Số lần xem: @Html.DisplayFor(model => model.Solanxem)</p>
+                <div class="mb-3 col-md-6">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <p><input type="submit" value="Xóa" class="btn btn-danger" /></p>
+                        <p class="btn btn-primary">@Html.ActionLink("Trờ về", "Index")</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

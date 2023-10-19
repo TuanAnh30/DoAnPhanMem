@@ -1,0 +1,33 @@
+﻿@model Admin.Models.SACH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<div class="page-title">
+    <h2>CHI TIẾT</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <img class="card-img-top" src="@Html.DisplayFor(model => model.Hinhanh)" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><b>@Html.DisplayFor(model => model.Tensach)</b></h5>
+                <p class="card-text"> @Html.DisplayFor(model => model.Mota)</p>
+                <p class="card-text"> <b>Đơn vị tính:</b> @Html.DisplayFor(model => model.Donvitinh)</p>
+                <p class="card-text"> <b>Đơn giá:</b> @Html.DisplayFor(model => model.Dongia)</p>
+                <p class="card-text"> <b>Nhà xuất bản:</b> @Html.DisplayFor(model => model.NHAXUATBAN.TenNXB)</p>
+                <p class="card-text"> <b>Chủ đề:</b> @Html.DisplayFor(model => model.CHUDE.TenCD)</p>
+                <p class="card-text"> <b>Số lượng bán:</b> @Html.DisplayFor(model => model.Soluongban)</p>
+                <p class="card-text"> <b>Số lần xem:</b> @Html.DisplayFor(model => model.Solanxem)</p>
+                <p class="card-text"><small class="text-muted">Cập nhật ngày @Html.DisplayFor(model => model.Ngaycapnhat)</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-3 col-md-6">
+    <p class="btn btn-secondary">@Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.Masach })</p>
+    <p class="btn btn-primary">@Html.ActionLink("Trở lại danh sách", "Index")</p>
+</div>

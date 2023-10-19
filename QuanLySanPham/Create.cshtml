@@ -1,0 +1,99 @@
+﻿@model Admin.Models.SACH
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h2 class="card-title">THÊM MỚI</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">SÁCH</h3>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="mb-3 col-md-6">
+                Tên sách
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tensach, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tensach, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Đơn vị tính
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Donvitinh, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Donvitinh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Giá
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Dongia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Dongia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Mô tả
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Hình ảnh
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Hinhanh, null, new { type = "file", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Hinhanh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Chủ đề
+                <div class="col-md-10">
+                    @Html.DropDownList("MaCD", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaCD, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Nhà xuất bản
+                <div class="col-md-10">
+                    @Html.DropDownList("MaNXB", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaNXB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Ngày cập nhật
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Ngaycapnhat, null, new
+                                            {
+                                                @class = "form-control",
+                                                @id = "ngaycapnhat",
+                                                type = "date",
+                                                placeholder = "mm/dd/yyyy"
+                                            })
+                    @Html.ValidationMessageFor(model => model.Ngaycapnhat, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="mb-3 col-md-6">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Tạo </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="btn btn-primary">
+    @Html.ActionLink("Trở lại danh sách", "Index")
+</div>

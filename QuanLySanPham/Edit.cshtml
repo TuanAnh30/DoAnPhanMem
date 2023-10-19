@@ -1,0 +1,111 @@
+﻿@model Admin.Models.SACH
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h2 class="card-title">CHỈNH SỬA</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Chủ Đề</h3>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="mb-3 col-md-6">
+                Tên sách
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tensach, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tensach, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Đơn vị
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Donvitinh, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Donvitinh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Đơn giá
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Dongia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Dongia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Mô tả
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Hình ảnh
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Hinhanh, null, new { type = "file", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Hinhanh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Chủ đề
+                <div class="col-md-10">
+                    @Html.DropDownList("MaCD", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaCD, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Nhà xuất bản
+                <div class="col-md-10">
+                    @Html.DropDownList("MaNXB", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaNXB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Ngày cập nhật
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Ngaycapnhat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ngaycapnhat, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Số lượng bán
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Soluongban, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Soluongban, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                Số lần xem
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Solanxem, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Solanxem, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i>Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="btn btn-primary">
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>
