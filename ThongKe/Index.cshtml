@@ -1,0 +1,258 @@
+﻿@using Admin.Models
+@model List<ViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<script src="~/Content/assets/vendor/chartsjs/Chart.min.js"></script>
+<script src="~/Content/assets/vendor/chartsjs/chart.js"></script>
+<div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="icon-big text-center">
+                            <a href="@Url.Action("Index", "Home")" class="teal fas fa-shopping-cart"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="detail">
+                            <p class="detail-subtitle">Bán Hàng</p>
+                            <span class="number">Tổng đơn: @ViewBag.SoDH</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <hr />
+                    <div class="stats">
+                        <i class="fas fa-calendar"></i> @DateTime.Now
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="icon-big text-center">
+                            <i class="olive fas fa-money-bill-alt"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="detail">
+                            <p class="detail-subtitle">Doanh Thu</p>
+
+                            <span class="number">$@ViewBag.TongDoanhThu</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <hr />
+                    <div class="stats">
+                        <i class="fas fa-calendar"></i> Đến tháng @DateTime.Now.Month năm @DateTime.Now.Year
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="icon-big text-center">
+                            <i class="violet fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="detail">
+                            <p class="detail-subtitle">Lượt Khách </p>
+                            <span class="number">15</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <hr />
+                    <div class="stats">
+                        <i class="fas fa-stopwatch"></i> Hôm nay
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="icon-big text-center">
+                            <a href="@Url.Action("Index", "KHACHHANGs")" class="orange fas fa-users"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="detail">
+                            <p href="@Url.Action("Index", "KHACHHANGs")" class="detail-subtitle">Khách Hàng</p>
+                            <span class="number">@ViewBag.SoKH</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <hr />
+                    <div class="stats">
+                        <i class="fas fa-envelope-open-text"></i> Tất cả
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="head">
+                            <h5 class="mb-0">THỐNG KÊ </h5>
+                            <p class="text-muted">Thông kê của cửa hàng trong tháng này</p>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="icon-big text-center">
+                                            <p class="teal fas fa-shopping-cart"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="detail">
+                                            <p class="detail-subtitle">Đơn Hàng Mới</p>
+                                            <span class="number">@ViewBag.SoDHT</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="icon-big text-center">
+                                            <i class="olive fas fa-money-bill-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="detail">
+                                            <p class="detail-subtitle">Doanh Thu Tháng @DateTime.Now.Month</p>
+                                            <span class="number">$@ViewBag.DoanhThuThang</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="icon-big text-center">
+                                            <i class="olive fas fa-dollar-sign"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="detail">
+                                            <p class="detail-subtitle">Tổng Doanh Thu</p>
+                                            <span class="number">@ViewBag.TongDoanhThu VNĐ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="icon-big text-center">
+                                            <i class="teal fas fa-money-bill-wave"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="detail">
+                                            <p class="detail-subtitle">Sách Bán Chạy</p>
+                                            @foreach (var item in Model)
+                                            {
+                                                <div class="card col-xl-12 d-flex align-items-stretch">
+                                                    <img class="card-img-top" src="~/Content/@item.ImgPro" alt="ImgBOOK" />
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">@item.NamePro</h5>
+                                                        <p class="card-text">
+                                                            Số lượng bán: @item.sum_Quantity
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            }
+                                            <span class="number"><a></a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="fas fa-calendar"></i>  Tháng @DateTime.Now.Month Năm @DateTime.Now.Year
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="head">
+                            <h5 class="mb-0">THỐNG KÊ DOANH THU</h5>
+                            <p class="text-muted">Doanh thu năm nay</p>
+                        </div>
+                        <div>
+                            <canvas class="chart" id="bieudo"></canvas>
+                            <script>
+                                // Sample data for the chart
+
+                                // Create the chart using Chart.js
+                                const ctx = document.getElementById('bieudo');
+                                new Chart(ctx, {
+                                    type: 'line', // Change the type to 'line', 'pie', 'doughnut', etc. for different chart types
+                                    data: {
+                                        labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                                        datasets: [{
+                                            label: 'Doanh Thu',
+                                            data: [3, 5, 6, 7,
+                                                8, 9, 1, 2,
+                                                11, 15, 4, 6],
+                                            backgroundColor: 'rgba(76, 175, 80, 0.5)', // Background color for bars (for bar chart)
+                                            borderColor: '#6da252', // Border color for bars (for bar chart)
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        animation: {
+                                            duration: 2000,
+                                            easing: 'easeOutQuart',
+                                        },
+                                        plugins: {
+                                            legend: {
+                                                display: false,
+                                                position: 'top',
+                                            },
+                                            title: {
+                                                display: true,
+                                                text: 'Số tiền bán được',
+                                                position: 'left',
+                                            },
+                                        },
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
